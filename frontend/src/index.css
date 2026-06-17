@@ -1,0 +1,310 @@
+  /* ── Theme CSS Variables ───────────────────────────────────────────── */
+  :root,
+  [data-theme="light"] {
+    --bg-body: #f0f2f5;
+    --bg-surface: #ffffff;
+    --bg-sidebar: #1e2130;
+    --bg-sidebar-hover: rgba(255, 255, 255, 0.08);
+    --bg-input: #ffffff;
+    --bg-table-head: #212529;
+    --bg-badge-light: #f8f9fa;
+
+    --toast-bg: #ffffff;
+    --toast-text: #212529;
+    --toast-border: #dee2e6;
+
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-sidebar: rgba(255, 255, 255, 0.7);
+    --text-sidebar-active: #ffffff;
+
+    --border-color: #dee2e6;
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.07);
+    --shadow-nav: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    --navbar-bg: #0d6efd;
+    --navbar-text: #ffffff;
+
+    --input-border: #ced4da;
+    --input-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+
+    --toggle-bg: #e9ecef;
+    --toggle-icon: '☀️';
+    --navbar-gradient-start: #0f172a;
+    --navbar-gradient-end: #1e40af;
+    --navbar-hover: rgba(255, 255, 255, 0.12);
+    --register-btn-bg: #3b82f6;
+    --register-btn-hover: #2563eb;
+  }
+
+  [data-theme="dark"] {
+    --navbar-gradient-start: #111827;
+    --navbar-gradient-end: #1e3a8a;
+    --navbar-hover: rgba(255, 255, 255, 0.08);
+    --register-btn-bg: #2563eb;
+    --register-btn-hover: #1d4ed8;
+    --bg-body: #0f1117;
+    --bg-surface: #1a1d27;
+    --bg-sidebar: #12141e;
+    --toast-bg: #1a1d27;
+    --toast-text: #e2e8f0;
+    --toast-border: #2d3148;
+    --bg-sidebar-hover: rgba(255, 255, 255, 0.06);
+    --bg-input: #1e2130;
+    --bg-table-head: #12141e;
+    --bg-badge-light: #1e2130;
+
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-sidebar: rgba(255, 255, 255, 0.6);
+    --text-sidebar-active: #ffffff;
+
+    --border-color: #2d3148;
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.35);
+    --shadow-nav: 0 2px 8px rgba(0, 0, 0, 0.4);
+
+    --navbar-bg: #1a1d27;
+    --navbar-text: #e2e8f0;
+
+    --input-border: #3a3f5c;
+    --input-focus-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.3);
+
+    --toggle-bg: #2d3148;
+    --toggle-icon: '🌙';
+  }
+
+  /* ── Base Reset ─────────────────────────────────────────────────────── */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    text-align: left;
+    border: none;
+    min-height: 100vh;
+  }
+
+  /* ── Cards ──────────────────────────────────────────────────────────── */
+  .card {
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px;
+    background-color: var(--bg-surface) !important;
+    color: var(--text-primary) !important;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .card.shadow-sm,
+  .card.shadow {
+    box-shadow: var(--shadow-card) !important;
+  }
+
+  /* ── Tables ─────────────────────────────────────────────────────────── */
+  .table {
+    --bs-table-color: var(--text-primary);
+    --bs-table-bg: var(--bg-surface);
+    --bs-table-border-color: var(--border-color);
+    --bs-table-striped-bg: var(--bg-body);
+    --bs-table-hover-bg: var(--bg-body);
+  }
+
+  .table-dark {
+    --bs-table-bg: var(--bg-table-head);
+  }
+
+  .table-light {
+    --bs-table-bg: var(--bg-badge-light);
+    --bs-table-color: var(--text-primary);
+  }
+
+  /* ── Forms ──────────────────────────────────────────────────────────── */
+  .form-control,
+  .form-select {
+    border-radius: 8px;
+    background-color: var(--bg-input) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--input-border) !important;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    box-shadow: var(--input-focus-shadow) !important;
+    border-color: #6366f1 !important;
+  }
+
+  .form-control::placeholder {
+    color: var(--text-secondary) !important;
+  }
+
+  .form-label {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* ── Buttons ────────────────────────────────────────────────────────── */
+  .btn {
+    border-radius: 8px;
+  }
+
+  /* ── Modals ─────────────────────────────────────────────────────────── */
+  .modal-content {
+    background-color: var(--bg-surface) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+  }
+
+  .modal-header,
+  .modal-footer {
+    border-color: var(--border-color) !important;
+  }
+
+  /* ── Navbar (user layout) ───────────────────────────────────────────── */
+  .theme-navbar {
+    background: linear-gradient(135deg,
+        var(--navbar-gradient-start),
+        var(--navbar-gradient-end)) !important;
+
+    box-shadow: var(--shadow-nav);
+    transition: all 0.25s ease;
+
+    min-height: 72px;
+  }
+
+  .theme-brand {
+    color: var(--navbar-text) !important;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease;
+  }
+
+  .theme-brand:hover {
+    color: var(--navbar-text) !important;
+    transform: scale(1.03);
+  }
+
+  .theme-nav-link {
+    color: var(--navbar-text) !important;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .theme-nav-link:hover {
+    opacity: 0.9;
+  }
+
+  .active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+  }
+
+  .theme-login-btn {
+    border-width: 2px !important;
+  }
+
+  .theme-login-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .theme-register-btn {
+    background: var(--register-btn-bg) !important;
+    border: none !important;
+    color: white !important;
+    transition: all 0.2s ease;
+  }
+
+  .theme-register-btn:hover {
+    background: var(--register-btn-hover) !important;
+    transform: translateY(-1px);
+  }
+
+  /* ── Sidebar (admin layout) ─────────────────────────────────────────── */
+  .theme-sidebar {
+    background-color: var(--bg-sidebar) !important;
+    transition: background-color 0.25s ease;
+  }
+
+  /* ── Auth pages ─────────────────────────────────────────────────────── */
+  .theme-auth-bg {
+    background-color: var(--bg-body);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Theme Toggle Button ────────────────────────────────────────────── */
+  .theme-toggle-btn {
+    background: var(--toggle-bg);
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    padding: 8px 14px;
+    min-height: 38px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .theme-toggle-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  /* ── Misc ───────────────────────────────────────────────────────────── */
+  .text-muted {
+    color: var(--text-secondary) !important;
+  }
+
+  .bg-light {
+    background-color: var(--bg-badge-light) !important;
+  }
+
+  .border-secondary {
+    border-color: var(--border-color) !important;
+  }
+
+  table th {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  /* ── Hide Scrollbar ─────────────────────────────────────────────────── */
+  /* Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* IE, Edge and Firefox */
+  html, body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }

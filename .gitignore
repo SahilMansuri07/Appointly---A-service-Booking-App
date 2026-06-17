@@ -1,0 +1,5 @@
+node_modules/
+.env
+crypto-js.js
+enc_dec.html
+dist
